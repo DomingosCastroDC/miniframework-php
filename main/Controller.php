@@ -8,5 +8,10 @@ class Controller
     public function render($view,$params = [])
     {
         return App::$app->view->render($view,$params);
+    }   
+
+    public function redirect($url)
+    {
+        return App::$app->response->redirect($url);
     }
 }

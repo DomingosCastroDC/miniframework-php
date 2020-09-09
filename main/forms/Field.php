@@ -22,7 +22,7 @@ class Field
                     %s
                 </div>
             </div>
-        ',  $this->attribute,
+        ',  $this->model->getAttributeLabels()[$this->attribute] ?? $this->attribute,
             $this->attribute,
             $this->model->hasError($this->attribute) ? 'is-invalid' : '',
             $this->model->getError($this->attribute),

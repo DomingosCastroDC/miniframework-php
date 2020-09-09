@@ -1,11 +1,6 @@
-
 <?php
-
 use app\main\forms\Form;
-$this->title = "Registro";
-
 ?>
-<h1> Estou no registro </h1>
 
 <?php $form = Form::begin("","post") ?>
 

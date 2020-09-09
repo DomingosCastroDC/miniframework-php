@@ -8,7 +8,7 @@ class View
     #renderizar a view com um layout
     public function render($view,$params = [])
     {
-        $viewContent = $this->renderOnlyView($view,$params);
+        $viewContent = $this->renderView($view,$params);
         $renderLavout = $this->renderLayout();
 
         return str_replace("{{content}}",$viewContent,$renderLavout);
@@ -30,7 +30,7 @@ class View
     }
 
     #renderiza apenas view
-    protected function renderOnlyView($view,$params = [])
+    protected function renderView($view,$params = [])
     {
         extract($params);
         ob_start();

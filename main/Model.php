@@ -24,6 +24,11 @@ abstract class Model
 
     abstract public function rules():array;
 
+    public function getAttributeLabels()
+    {
+        return [];
+    }
+
     public function validate()
     {
         foreach ($this->rules() as $attribute => $rules) {
@@ -60,6 +65,7 @@ abstract class Model
 
                 if($rulename === self::RULE_MATCH && $value !== $this->{$rule['match']})
                 {
+                    $rule['match'] = $this->getAttributeLabels()[$rule['match']];
                     $this->addError($attribute,self::RULE_MATCH,$rule);
                 }
             }
@@ -72,7 +78,7 @@ abstract class Model
     {
         return [
             self::RULE_REQUIRED => "Este campo é requerido",
-            self::RULE_EMAIL => "Este campo deve ser um endereço de email válido",
+            self::RULE_EMAIL => "O campo deve ser um endereço de email válido",
             self::RULE_MIN => "Este campo deve ser maior que {min}",
             self::RULE_MAX => "Este campo deve ser menor que {max}",
             self::RULE_MATCH => "Este campo deve ser igual ao campo {match}",
