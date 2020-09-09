@@ -27,9 +27,9 @@ class AuthController extends Controller
                 return "oi";
             }
         }
-
-        var_dump($model->errors);
         
-        return $this->render("registro");
+        return $this->render("registro",[
+            'model' => $model
+        ]);
     }
 }

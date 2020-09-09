@@ -89,4 +89,14 @@ abstract class Model
 
         $this->errors[$attribute][] = $message;
     }
+
+    public function hasError($attribute)
+    {
+        return $this->errors[$attribute] ?? false;
+    }
+
+    public function getError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
+    }
 }
